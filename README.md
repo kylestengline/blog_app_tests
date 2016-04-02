@@ -1,2 +1,2 @@
-## Practicing testing with RSPEC 3 and Capybara
+## Practice with RSPEC 3 and Capybara
 
