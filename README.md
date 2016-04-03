@@ -1,4 +1,4 @@
-# Practice with RSPEC 3 and Capybara
+# Practice with RSPEC and Capybara
 
 ## Notes
 
