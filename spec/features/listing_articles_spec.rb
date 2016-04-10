@@ -7,6 +7,7 @@ RSpec.feature "Listing Articles" do
     @article2 = Article.create(title: "The second article", body: "Body of the second article")
   end
 
+  # basically saying, "Ok, here's the scenario I want for the page" Then you write that code and manipulate the files you need to in order to pass the test.
   scenario "List all articles" do
     visit "/"
 

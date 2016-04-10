@@ -1,6 +1,7 @@
 <article class="detail-article">
   <h1 class="article-detail-title"><%= @article.title %></h1>
 
+  <!-- glyphicon shows a calendar icon. This div will show the date. -->
   <div class="glyphicon glyphicon-calendar" id="article-date">
     <%= @article.created_at.strftime("%b %d, %Y") %>
   </div>
