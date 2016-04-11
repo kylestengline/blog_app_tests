@@ -24,6 +24,21 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit 
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      flash[:success] = "Article has been updated"
+      redirect_to @article
+    else
+      flash.now[:danger] = "Article has not been updated"
+      render :edit
+    end
+  end
+
   private
     # telling rails is ok to send the title and body of the article to be submitted.
     def article_params
