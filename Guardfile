@@ -45,6 +45,9 @@ guard :rspec, cmd: "rspec" do
   dsl.watch_spec_files_for(rails.app_files)
   dsl.watch_spec_files_for(rails.views)
 
+  # Saying that when I make changes to the controller and model files to watch for that change and run the spec feature tests. We write this so we don't have to hit enter in our terminal(while using guard) everytime we cmd+save a file. Without this, guard will only run the tests in the files that we update and save, as opposed to all the tests we write.
+  watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { "spec/features" }
+  watch(%r{^app/models/(.+)\.rb%}) { "spec/features" }
   watch(rails.controllers) do |m|
     [
       rspec.spec.("routing/#{m[1]}_routing"),
@@ -55,11 +58,12 @@ guard :rspec, cmd: "rspec" do
 
   # Rails config changes
   watch(rails.spec_helper)     { rspec.spec_dir }
-  watch(rails.routes)          { "#{rspec.spec_dir}/routing" }
+  # run all spec tests if routes are altered.
+  watch(rails.routes)          { "spec" } #{ "#{rspec.spec_dir}/routing" }
   watch(rails.app_controller)  { "#{rspec.spec_dir}/controllers" }
 
   # Capybara features specs
-  watch(rails.view_dirs)     { |m| rspec.spec.("features/#{m[1]}") }
+  watch(rails.view_dirs)     { "spec/features" } # { |m| rspec.spec.("features/#{m[1]}") }
   watch(rails.layouts)       { |m| rspec.spec.("features/#{m[1]}") }
 
   # Turnip features and steps
