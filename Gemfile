@@ -7,7 +7,7 @@ gem 'rails', '>= 5.0.0.beta3', '< 5.1'
 gem 'bootstrap-sass', '~>3.3.4.1'
 gem 'autoprefixer-rails', '~>5.2.0'
 gem 'sqlite3'
-gem 'devise', '~>3.5.1'
+gem 'devise', git: 'git://github.com/plataformatec/devise'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
