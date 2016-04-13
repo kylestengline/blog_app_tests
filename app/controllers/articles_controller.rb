@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  
+  # this action comes with devise
+  before_action :authenticate_user!, except: [:index, :show]
   # before any other code executes this code will run for only the below methods. 
   before_filter :set_article, only: [:show, :edit, :destroy, :update]
 
