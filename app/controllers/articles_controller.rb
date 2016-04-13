@@ -39,6 +39,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @article = Article.find(params[:id])
+    if @article.destroy
+      flash[:success] = "Article has been deleted"
+      redirect_to articles_path
+    end
+  end
+
   private
     # telling rails is ok to send the title and body of the article to be submitted.
     def article_params
