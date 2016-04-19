@@ -3,6 +3,12 @@ require 'rails_helper'
 # feature spec. 
 RSpec.feature "Creating Articles" do
     # basically saying, "Ok, here's the scenario I want for the page" Then you write that code and manipulate the files you need to in order to pass the test.
+
+    before do
+        @john = User.create!(email: "john@example.com", password: "password")
+        login_as(@john)
+    end
+
   scenario "A user creates a new article" do
     # Testing that we can visit the root path
     visit "/"
@@ -18,6 +24,7 @@ RSpec.feature "Creating Articles" do
     # expecting the page to have content and after article saves displays the message below. Also, expecting the page to have an articles_path
     expect(page).to have_content("Article has been created")
     expect(page.current_path).to eq(articles_path)
+    expect(page).to have_content("Created by: #{@john.email}")
   end
   # Another scenario for creating article and make sure the form is not blank.
   scenario "A user fails to create a new article" do

@@ -19,5 +19,4 @@ RSpec.feature "Listing Articles" do
     expect(page).to have_link(@article2.title)
 
   end
-
 end
