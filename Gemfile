@@ -39,6 +39,7 @@ group :development, :test do
   gem 'guard-rspec', require: false
   gem 'spring-commands-rspec'
   gem 'byebug'
+  gem 'database_cleaner'
 end
 
 group :development do

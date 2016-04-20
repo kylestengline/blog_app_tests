@@ -3,6 +3,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require "capybara/rspec"
+require "database_cleaner"
 include Warden::Test::Helpers
 Warden.test_mode!
 # Add additional requires below this line. Rails is not loaded until this point!

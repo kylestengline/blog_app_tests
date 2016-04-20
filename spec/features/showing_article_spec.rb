@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.feature "Showing an Article" do 
 
   before do
-    @article = Article.create(title: "The first article", body: "Body of first article")
+    john = User.create(email: "john@example.com", password: "password")
+    login_as(john)
+    @article = Article.create(title: "The first article", body: "Body of first article", user: john)
   end
   # basically saying, "Ok, here's the scenario I want for the page" Then you write that code and manipulate the files you need to in order to pass the test.
   scenario "Display individual article" do
