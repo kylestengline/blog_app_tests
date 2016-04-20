@@ -10,6 +10,7 @@ RSpec.feature "Creating Articles" do
     end
 
   scenario "A user creates a new article" do
+    
     # Testing that we can visit the root path
     visit "/"
 
