@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.feature "Listing Articles" do 
   
   before do 
-    john = User.create(email: "john@example.com", password: "password")
-    login_as(john)
-    @article1 = Article.create(title: "The first article", body: "Body of first article", user: john)
-    @article2 = Article.create(title: "The second article", body: "Body of the second article", user: john)
+    # john = User.create(email: "john@example.com", password: "password")
+    # login_as(john)
+    @article1 = Article.create(title: "The first article", body: "Body of first article")
+    @article2 = Article.create(title: "The second article", body: "Body of the second article")
   end
 
   # basically saying, "Ok, here's the scenario I want for the page" Then you write that code and manipulate the files you need to in order to pass the test.
@@ -20,6 +20,5 @@ RSpec.feature "Listing Articles" do
     expect(page).to have_link(@article1.title)
     expect(page).to have_link(@article2.title)
     expect(page).not_to have_link("New Article")
-
   end
 end

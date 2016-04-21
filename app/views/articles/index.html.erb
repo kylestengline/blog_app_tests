@@ -1,6 +1,6 @@
 <h1>Listing all Articles</h1>
 
-<% unless user_signed_in? %>
+<% if user_signed_in? %>
   <%= link_to "New Article", new_article_path, class: "btn btn-default bt-lg", id: "new-article-btn" %>
 <% end %>
 
