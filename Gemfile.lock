@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: 22468f375684177bb9ffbc62595cf9ed10db9bbc
+  revision: 48220f087bc807629b42d731f6b68fe625edbb91
   branch: master
   specs:
     devise (4.0.0)
@@ -56,10 +56,6 @@ GEM
       execjs
       json
     bcrypt (3.1.11)
-    better_errors (2.1.1)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
-      rack (>= 0.9.0)
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -247,7 +243,6 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails (~> 5.2.0)
-  better_errors
   bootstrap-sass (~> 3.3.4.1)
   byebug
   capybara
