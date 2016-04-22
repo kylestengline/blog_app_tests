@@ -15,6 +15,13 @@ Capybara.configure do |config|
   config.ignore_hidden_elements = true
 end
 
+# had to add this in order to fix a nomethod error for render template. Also had to install rails-controller-testing gem.
+RSpec.configure do |config|
+  config.include Rails::Controller::Testing::TestProcess
+  config.include Rails::Controller::Testing::TemplateAssertions
+  config.include Rails::Controller::Testing::Integration
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
