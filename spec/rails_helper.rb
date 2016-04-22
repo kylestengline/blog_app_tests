@@ -15,7 +15,7 @@ Capybara.configure do |config|
   config.ignore_hidden_elements = true
 end
 
-# had to add this in order to fix a nomethod error for render template. Also had to install rails-controller-testing gem.
+# Had to install gem 'rails-controller-testing'. Had to add this in order to fix a nomethoderror for expect(response).to render template.
 RSpec.configure do |config|
   config.include Rails::Controller::Testing::TestProcess
   config.include Rails::Controller::Testing::TemplateAssertions

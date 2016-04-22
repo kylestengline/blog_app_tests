@@ -1,15 +1,17 @@
 require 'rails_helper'
 require 'support/macros'
 
-
+# only the owner of the article can edit and update it. We do this to prevent non-owners from gaining access to the edit path. Check out macros.rb file first.
 RSpec.describe ArticlesController, :type => :controller do
 
   describe "GET edit" do
 
+    #before anything else, a user is created.
     before do
       @john = User.create(email: "john@example.com", password: "password")
     end
 
+    # only the owner can edit his article
     context "owner is allowed to edit his articles" do
       it "renders the edit template" do
         login_user @john
@@ -20,7 +22,7 @@ RSpec.describe ArticlesController, :type => :controller do
       end
     end
 
-    # logged in user is fred, but the article creator is john.
+    # logged in user is fred, but the article creator is john. restricts access from fred so he cannot edit articles john created.
     context "non-owner is not allowed to edit other users articles" do
       it "redirects to the root path" do
         fred = User.create(email: "fred@example.com", password: "password")

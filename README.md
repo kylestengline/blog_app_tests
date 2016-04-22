@@ -8,3 +8,13 @@
 
 ### Important Links
 - [Installing and Using guard](https://github.com/guard/guard-rspec)
+- [Rails Controller Testing](https://github.com/rails/rails-controller-testing)
+
+### Small Issues with Rails 5 and RSpec, Capybara. April 22, 2016
+- For error: ``` email already taken ``` run ``` bundle exec rails db:test:prepare ``` cleans the db so you can run your tests again without them failing.
+- For error: ``` nomethoderror for expect(response).to render_template... ``` for running tests in your controller specs. Install ``` gem 'rails-controller-testing' ``` and go into your rails_helper.rb and write the following code ``` RSpec.configure do |config|
+  config.include Rails::Controller::Testing::TestProcess
+  config.include Rails::Controller::Testing::TemplateAssertions
+  config.include Rails::Controller::Testing::Integration
+end ``` This will allow controller testing within your rails 5 project without erroring out.
+[Refer to the Github](https://github.com/rails/rails-controller-testing)
