@@ -4,6 +4,8 @@ class Article < ApplicationRecord
   validates :body, presence: true
 
   belongs_to :user
+  # if article gets deleted, then the dependent comment will get deleted as well.
+  has_many :comments, dependent: :destroy
 
   default_scope { order(created_at: :desc) }
 end
