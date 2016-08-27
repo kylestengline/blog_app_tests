@@ -6,7 +6,6 @@ gem 'rails', '>= 5.0.0.beta3', '< 5.1'
 # Use sqlite3 as the database for Active Record
 gem 'bootstrap-sass', '~>3.3.4.1'
 gem 'autoprefixer-rails', '~>5.2.0'
-gem 'sqlite3'
 gem 'devise', :github => 'plataformatec/devise', :branch => 'master'
 # Use Puma as the app server
 gem 'puma'
@@ -43,6 +42,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'byebug'
   gem 'database_cleaner'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -54,6 +54,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 group :test do
   gem 'capybara'#, git: 'git://github.com/jnicklas/capybara', ref: '4b3093f'
 end
