@@ -2,16 +2,16 @@ require 'rails_helper'
 
 RSpec.feature "Adding reviews to Articles" do 
 
-  before do 
-    @john = User.create(email: "john@example.com", password: "password")
-    @fred = User.create(email: "fred@example.com", password: "password")
+  let(:user1) {User.create(email: "john@example.com", password: "password")}
+  let(:user2) {User.create(email: "fred@example.com", password: "password")}
 
-    @article = Article.create(title: "First article", body: "Body of first article", user: @john)
+  before do 
+    @article = Article.create(title: "First article", body: "Body of first article", user: user1)
   end
 
   scenario "permits a signed in user to write a review" do
 
-    login_as(@fred)
+    login_as(user2)
 
     visit "/"
 

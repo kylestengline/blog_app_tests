@@ -2,12 +2,11 @@ require 'rails_helper'
 
 # feature spec. 
 RSpec.feature "Creating Articles" do
-    # basically saying, "Ok, here's the scenario I want for the page" Then you write that code and manipulate the files you need to in order to pass the test.
 
-    before do
-        @john = User.create!(email: "john@example.com", password: "password")
-        login_as(@john)
-    end
+  before do
+      @john = User.create!(email: "john@example.com", password: "password")
+      login_as(@john)
+  end
 
   scenario "A user creates a new article" do
     

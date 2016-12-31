@@ -7,15 +7,13 @@ RSpec.describe ArticlesController, :type => :controller do
   describe "GET edit" do
 
     #before anything else, a user is created.
-    before do
-      @john = User.create(email: "john@example.com", password: "password")
-    end
+    let(:user) {User.create(email: "john@example.com", password: "password")}
 
     # only the owner can edit his article
     context "owner is allowed to edit his articles" do
       it "renders the edit template" do
-        login_user @john
-        article = Article.create(title: "First article", body: "Body of first article", user: @john)
+        login_user user
+        article = Article.create(title: "First article", body: "Body of first article", user: user)
 
         get :edit, id: article
         expect(response).to render_template :edit
@@ -29,7 +27,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
         login_user fred
 
-        article = Article.create(title: "First article", body: "Body of first article", user: @john)
+        article = Article.create(title: "First article", body: "Body of first article", user: user)
 
         get :edit, id: article
         expect(response).to redirect_to(root_path)
