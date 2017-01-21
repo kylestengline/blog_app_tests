@@ -85,6 +85,21 @@ body {
   font-size: large;
 }
 
+/* #### Mobile #### */
 
+@media only screen and (min-width: 300px) {
+  
+  nav.navbar-default, div.row, div.col-md-10.col-md-offset-1 {
+    max-width: 105%;
+  }
+
+  a.navbar-brand {
+    font-size: 25px;
+  }
+
+  label {
+    font-size: 20px;
+  }
+}
 
 
