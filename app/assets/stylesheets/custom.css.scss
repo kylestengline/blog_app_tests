@@ -85,6 +85,10 @@ body {
   font-size: large;
 }
 
+li.sign-out {
+  font-size: 20px;
+}
+
 /* #### Mobile #### */
 
 @media only screen and (min-width: 300px) {
@@ -111,7 +115,8 @@ body {
 
   a.devise-signup, 
   a.devise-login, 
-  a.forgotten-pword {
+  a.forgotten-pword,
+  a.sign-out {
     font-size: 20px;
   }
 

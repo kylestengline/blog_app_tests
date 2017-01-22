@@ -13,15 +13,16 @@
         <ul class="nav navbar-nav">
           <!-- <li class="authors"><%#= link_to "Authors", "#" %></li> -->
           <% if user_signed_in? %>
-            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            <li class="sign-out"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "sign-out" %></li>
             <div class="navbar-right">
               <p class="navbar-text">
                 Signed in as <%= "#{current_user.email}" %>
               </p>
+          <% else %>
+              <li class="sign-up"><%= link_to "Sign up", new_user_registration_path %></li>
+              <li class="sign-in"><%= link_to "Sign in", new_user_session_path %></li>
             </div>
           <% end %>
-          <li class="sign-up"><%= link_to "Sign up", new_user_registration_path %></li>
-          <li class="sign-in"><%= link_to "Sign in", new_user_session_path %></li>
         </ul>
       </div>
     </div>
