@@ -108,4 +108,16 @@ body {
   li.sign-up, li.sign-in {
     font-size: 20px;
   }
+
+  a.devise-signup, 
+  a.devise-login, 
+  a.forgotten-pword {
+    font-size: 20px;
+  }
+
+  /*Sign In*/
+  input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+  }
 }
