@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'better_errors'
 gem 'jquery-turbolinks'
+gem "sprockets", '3.6.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
