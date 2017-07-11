@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_article
 
   def create
-    unless current_user
+    if !current_user
       flash[:danger] = "Please sign in or sign up first"
       redirect_to new_user_session_path
     else

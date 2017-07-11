@@ -23,9 +23,11 @@ RSpec.describe CommentsController, :type => :controller do
       it "is redirected to the sign in page" do
         # no logged in user
         login_user nil
+
         article = Article.create(title: "First Article", body: "Body of first article", user: user)
+        
         post :create, comment: { body: "Awesome post"},
-        article_id: article.id
+        params: { article_id: article.id }
         expect(response).to redirect_to new_user_session_path
       end
     end

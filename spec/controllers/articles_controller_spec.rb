@@ -15,7 +15,7 @@ RSpec.describe ArticlesController, :type => :controller do
         login_user user
         article = Article.create(title: "First article", body: "Body of first article", user: user)
 
-        get :edit, id: article
+        get :edit, params: { id: article }
         expect(response).to render_template :edit
       end
     end
@@ -29,7 +29,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
         article = Article.create(title: "First article", body: "Body of first article", user: user)
 
-        get :edit, id: article
+        get :edit, params: { id: article }
         expect(response).to redirect_to(root_path)
         message = "You can only edit your own article."
         expect(flash[:danger]).to eq message
